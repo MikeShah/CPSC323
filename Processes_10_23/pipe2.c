@@ -19,7 +19,7 @@ int main(){
 		}
 
 		if(childpid == 0){
-				sleep(1); // Artificial delay to show that 'read' call in parent
+				sleep(2); // Artificial delay to show that 'read' call in parent
 									// is blocking.
 				/* Child process closes up input side of pipe */
 				close(fd[0]);
@@ -33,7 +33,7 @@ int main(){
 				close(fd[1]);
 				char readbuffer[80];
 				int nbytes = read(fd[0], readbuffer, sizeof(readbuffer));
-				printf("Got from child: %s\n",readbuffer);
+				printf("Got %d bytes from child: %s\n",nbytes, readbuffer);
 		}
 
 		return 0;
