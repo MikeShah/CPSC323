@@ -13,7 +13,8 @@ int main(){
 
 	// Another way to 'fork()' a child process without storing the pid
 	// The parent process will begin executing from the else block.
-    if(fork()==0){
+	int child_process_id = fork();
+    if(child_process_id==0){
         printf("Child process runs and does something interesting...!\n");
 			  sleep(5);
 				printf("Child process finishes!\n");
